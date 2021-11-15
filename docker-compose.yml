@@ -1,13 +1,16 @@
-version: '3.7'
+version: '3.1'
 services:
-  postgresql:
-    image: postgresql:12-alpine
+  db:
+    image: postgres:12-alpine
     ports:
-      - '3306:3306'
+      - '9999:8080'
     volumes:
-      - ./data:/var/lib/postgresql
+          - ./data:/var/lib/postgres
     environment:
-      - MYSQL_RANDOM_ROOT_PASSWORD=yes
-      - MYSQL_DATABASE=app
-      - MYSQL_USER=app
-      - MYSQL_PASSWORD=9mREsvXDs9Gk89Ef
+      - POSTGRES_RANDOM_ROOT_PASSWORD=yes
+      - POSTGRES_DATABASE=app
+      - POSTGRES_USER=app
+      - POSTGRES_PASSWORD=12345
+
+
+#  docker-compose -f docker-compose.yml up
